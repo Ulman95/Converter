@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">Конвертер</string>
+
+
+    <!--  Settings -->
+    <string name="action_settings">Настройки</string>
+
+    <string name="write_a_letter_to_the_developer_summary">Оставить отзыв</string>
+    <string name="write_a_letter_to_the_developer_title">Сообщение разработчику</string>
+
+
+    <string name="version_title">Версия</string>
+
+    <!--  View -->
+    <string name="clear">Очистить</string>
+
+
+    <!-- Toast -->
+
+    <string name="toast_data">Некорректный ввод данных</string>
+    <string name="digits_dialogTitle">Введите число дополнительных знаков(только для BIN)</string>
+    <string name="digits_title">Число дополнительных знаков</string>
+    <string name="spaces_title">Добавить отступы</string>
+    <string name="toast_editText_preference">Некорректное значение\nдополнительных цифр</string>
+    <string name="spaces_summary">Добавляет отступы между разрядами</string>
+    <string name="send">Отправить</string>
+    <string name="message">Сообщение</string>
+    <string name="choose_an_email_client">Выберете почтовый клиент</string>
+
+
+</resources>
