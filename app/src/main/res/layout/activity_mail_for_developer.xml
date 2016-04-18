@@ -20,13 +20,5 @@
         android:hint="@string/message" />
 
 
-    <Button
-        android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:onClick="sendEmail"
-        android:text="@string/send" />
-
 
 </LinearLayout>

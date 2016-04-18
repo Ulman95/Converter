@@ -4,6 +4,8 @@ import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,25 +23,43 @@ public class MailForDeveloper extends Activity {
 
     }
 
-    public void sendEmail(View view) {
 
-        final Intent intent = new Intent(Intent.ACTION_SEND);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        EditText message = (EditText) findViewById(R.id.message);
+        getMenuInflater().inflate(R.menu.menu_mail_for_developer, menu);
+        return true;
+    }
 
-        intent.setType("message/rfc822");
-        intent.putExtra(android.content.Intent.EXTRA_EMAIL,new String[]{getString(R.string.developer_email)});
-        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject_of_email));
-        intent.putExtra(Intent.EXTRA_TEXT , message.getText().toString());
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-        try {
-            startActivity(Intent.createChooser(intent, getString(R.string.choose_an_email_client)));
-            finish();
+        int id = item.getItemId();
 
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(MailForDeveloper.this,
-                    "There is no email client installed.", Toast.LENGTH_SHORT).show();
+        switch (id) {
+            case R.id.action_send:
+
+                final Intent intent = new Intent(Intent.ACTION_SEND);
+
+                EditText message = (EditText) findViewById(R.id.message);
+
+                intent.setType("message/rfc822");
+                intent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{getString(R.string.developer_email)});
+                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.subject_of_email));
+                intent.putExtra(Intent.EXTRA_TEXT, message.getText().toString());
+
+                try {
+                    startActivity(Intent.createChooser(intent, getString(R.string.choose_an_email_client)));
+                    finish();
+
+                } catch (android.content.ActivityNotFoundException ex) {
+                    Toast.makeText(MailForDeveloper.this,
+                            "There is no email client installed.", Toast.LENGTH_SHORT).show();
+                    return true;
+                }
+
+
         }
-
+        return super.onOptionsItemSelected(item);
     }
 }
