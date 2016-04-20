@@ -3,7 +3,7 @@
   
 
    
-Decimal to Binary or to Octal or to Hexdicimal
+Decimal to Binary or to Octal or to Hexdecimal
 
 
 
