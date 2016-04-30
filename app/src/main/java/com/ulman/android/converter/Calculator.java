@@ -1,4 +1,4 @@
-package com.ulman.converter;
+package com.ulman.android.converter;
 
 public class Calculator {
 

@@ -1,15 +1,11 @@
 <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="2"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:paddingBottom="16dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:paddingTop="16dp">
 
 
     <TextView
@@ -18,18 +14,17 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="0"
-        android:text="@string/dec" />
+        android:text="@string/dec"/>
 
     <EditText
         android:id="@+id/dec_value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_row="0"
         android:digits="0123456789-"
-        android:ems="15"
         android:inputType="phone"
-         />
+        />
 
     <TextView
         android:id="@+id/bin_system"
@@ -37,16 +32,15 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="1"
-        android:text="@string/bin" />
+        android:text="@string/bin"/>
 
     <EditText
         android:id="@+id/bin_value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_row="1"
         android:digits="01"
-        android:ems="15"
         android:inputType="phone"
         />
 
@@ -56,16 +50,15 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="2"
-        android:text="@string/oct" />
+        android:text="@string/oct"/>
 
     <EditText
         android:id="@+id/oct_value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_row="2"
         android:digits="01234567-"
-        android:ems="15"
         android:inputType="phone"
         />
 
@@ -75,26 +68,26 @@
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_row="3"
-        android:text="@string/hex" />
+        android:text="@string/hex"/>
 
     <EditText
         android:id="@+id/hex_value"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_column="1"
         android:layout_row="3"
         android:digits="0123456789ABCDEFabcdef-"
-        android:ems="15"
-         />
+
+        />
 
     <Button
+        android:id="@+id/clear_all_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_column="0"
         android:layout_columnSpan="2"
         android:layout_gravity="center_horizontal"
         android:layout_row="4"
-        android:onClick="clearAll"
-        android:text="@string/clear" />
+        android:text="@string/clear"/>
 
 </GridLayout>
