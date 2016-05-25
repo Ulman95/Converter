@@ -13,8 +13,6 @@ public class Calculator {
         String absAnswer = Integer.toBinaryString(Math.abs(intAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
-
-
     }
 
     public String decimalToOctal(String value) throws NumberFormatException {
@@ -28,7 +26,6 @@ public class Calculator {
         String absAnswer = Integer.toOctalString(Math.abs(intAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
-
     }
 
     public String decimalToHexadecimal(String value) throws NumberFormatException {
@@ -42,7 +39,6 @@ public class Calculator {
         String absAnswer = Integer.toHexString(Math.abs(intAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
-
     }
 
 
@@ -53,8 +49,6 @@ public class Calculator {
         }
 
         return Integer.toString(Integer.parseInt(value, 2), 10);
-
-
     }
 
     public String binaryToOctal(String value) throws NumberFormatException {

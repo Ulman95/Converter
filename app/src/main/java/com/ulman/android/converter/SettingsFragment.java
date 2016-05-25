@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
 
 
 public class SettingsFragment extends PreferenceFragment {
@@ -37,6 +38,13 @@ public class SettingsFragment extends PreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
 
                 editText.setSummary(((String) newValue));
+                try {
+                    Integer.parseInt((String) newValue);
+                } catch (NumberFormatException e) {
+
+                    Toast.makeText(getActivity(),getString(R.string.toast_editText_preference),Toast.LENGTH_SHORT).show();
+
+                }
                 return true;
             }
 

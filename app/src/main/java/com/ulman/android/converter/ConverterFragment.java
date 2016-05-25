@@ -22,10 +22,10 @@ public class ConverterFragment extends Fragment {
 
     private final Calculator calculator = new Calculator();
     private boolean decFlag;
-    private boolean binFlag ;
-    private boolean octFlag ;
+    private boolean binFlag;
+    private boolean octFlag;
     private boolean hexFlag;
-    private boolean space ;
+    private boolean space;
     private Button clearAllButton;
     private EditText decEditText;
     private EditText binEditText;
@@ -74,9 +74,7 @@ public class ConverterFragment extends Fragment {
 
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -119,7 +117,6 @@ public class ConverterFragment extends Fragment {
                         errorOccurred(toast_data);
                         e.printStackTrace();
                     }
-
                 }
             }
         });
@@ -134,14 +131,10 @@ public class ConverterFragment extends Fragment {
                     octFlag = false;
                     hexFlag = false;
                 }
-
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
-            }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -179,7 +172,6 @@ public class ConverterFragment extends Fragment {
                         errorOccurred(toast_data);
                         e.printStackTrace();
                     }
-
                 }
 
             }
@@ -196,7 +188,6 @@ public class ConverterFragment extends Fragment {
                     hexFlag = false;
 
                 }
-
             }
 
             @Override
@@ -242,9 +233,7 @@ public class ConverterFragment extends Fragment {
                         errorOccurred(toast_data);
                         e.printStackTrace();
                     }
-
                 }
-
             }
         });
         hexEditText.addTextChangedListener(new TextWatcher() {
@@ -258,7 +247,6 @@ public class ConverterFragment extends Fragment {
                     octFlag = false;
                     hexFlag = true;
                 }
-
             }
 
             @Override
@@ -305,9 +293,7 @@ public class ConverterFragment extends Fragment {
                         errorOccurred(toast_data);
                         e.printStackTrace();
                     }
-
                 }
-
             }
         });
         clearAllButton.setOnClickListener(new View.OnClickListener() {
@@ -337,7 +323,7 @@ public class ConverterFragment extends Fragment {
 
             case R.id.settings: {
 
-                Intent intent = new Intent(getActivity(),SettingsActivity.class);
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
                 startActivity(intent);
 
                 return true;
@@ -347,7 +333,7 @@ public class ConverterFragment extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 
-        @Override
+    @Override
     public void onResume() {
         super.onResume();
 
@@ -368,12 +354,11 @@ public class ConverterFragment extends Fragment {
     }
 
 
-
-
     private String makeSpaces(String value, int radix) {
 
-        StringBuilder sb = new StringBuilder();
-        char[] ch = value.toCharArray();
+        StringBuilder sb = new StringBuilder(value).reverse();
+        char[] ch = sb.toString().toCharArray();
+        sb = new StringBuilder();
         String spaces = " ";
 
         switch (radix) {
@@ -416,9 +401,8 @@ public class ConverterFragment extends Fragment {
             default: {
             }
         }
-        String result = sb.toString();
 
-        return result.replace(" ", "").isEmpty() ? value : result;
+        return sb.reverse().toString();
     }
 
 

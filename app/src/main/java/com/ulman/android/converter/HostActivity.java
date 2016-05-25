@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 
 public abstract class HostActivity extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +23,6 @@ public abstract class HostActivity extends AppCompatActivity {
             fm.beginTransaction()
                     .add(R.id.fragment_container,fragment)
                     .commit();
-
         }
     }
 

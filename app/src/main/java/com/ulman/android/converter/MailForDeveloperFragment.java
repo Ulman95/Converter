@@ -2,8 +2,6 @@ package com.ulman.android.converter;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,13 +25,7 @@ public class MailForDeveloperFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_mail_for_developer,container,false);
-
-
-
-        return view;
-
-
+        return inflater.inflate(R.layout.fragment_mail_for_developer,container,false);
     }
 
 
@@ -69,8 +61,6 @@ public class MailForDeveloperFragment extends Fragment {
                             "There is no email client installed.", Toast.LENGTH_SHORT).show();
                     return true;
                 }
-
-
         }
         return super.onOptionsItemSelected(item);
     }
