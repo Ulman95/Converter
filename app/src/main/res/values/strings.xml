@@ -1,33 +1,39 @@
 <resources>
     <string name="app_name">Converter</string>
 
-    <!--  SettingsFragment -->
-    <string name="action_settings">Settings</string>
-    <string name="action_send">Send</string>
 
-    <string name="write_a_letter_to_the_developer_key">WriteALetterToTheDeveloperKEY</string>
+    <!-- AdMob -->
+
+    <string name="converter_banner" translatable="false">ca-app-pub-4951771777068505/6661350476</string>
+    <string name="app_id" translatable="false">ca-app-pub-4951771777068505~7219753675</string>
+
+    <!-- SettingsFragment -->
+    <string name="action_settings">Settings</string>
+    <string name="action_send" translatable="false">Send</string>
+
+    <string name="write_a_letter_to_the_developer_key" translatable="false">WriteALetterToTheDeveloperKEY</string>
     <string name="write_a_letter_to_the_developer_summary">Feedback</string>
     <string name="write_a_letter_to_the_developer_title">Message to the developer</string>
 
-    <string name="version_key">versionKEY</string>
-    <string name="version_summary">1.0.0</string>
+    <string name="version_key" translatable="false">versionKEY</string>
+    <string name="version_summary" translatable="false">1.0.0</string>
     <string name="version_title">Version</string>
 
-    <string name="spaces_key">spacesKEY</string>
+    <string name="spaces_key" translatable="false">spacesKEY</string>
     <string name="spaces_summary">Add spaces between digits</string>
     <string name="spaces_title">Add spaces</string>
 
-    <string name="digits_key">digitsKEY</string>
+    <string name="digits_key" translatable="false">digitsKEY</string>
     <string name="digits_title">Count of the digits</string>
     <string name="digits_dialogTitle">Enter the count of digits(only for BIN)</string>
 
 
-    <!--  View -->
+    <!-- View -->
     <string name="clear">Clear</string>
-    <string name="hex">HEX</string>
-    <string name="oct">OCT</string>
-    <string name="bin">BIN</string>
-    <string name="dec">DEC</string>
+    <string name="hex" translatable="false">HEX</string>
+    <string name="oct" translatable="false">OCT</string>
+    <string name="bin" translatable="false">BIN</string>
+    <string name="dec" translatable="false">DEC</string>
 
 
     <!-- Toast -->
@@ -36,8 +42,8 @@
     <string name="toast_editText_preference">Incorrect input\ncount of the digits </string>
     <string name="message">Message</string>
     <string name="send">Send</string>
-    <string name="developer_email">developerVyacheslavRodionov@gmail.com</string>
-    <string name="subject_of_email">Converter/report</string>
+    <string name="developer_email" translatable="false">developerVyacheslavRodionov@gmail.com</string>
+    <string name="subject_of_email" translatable="false">Converter/report</string>
     <string name="choose_an_email_client">Choose an email client</string>
 
 

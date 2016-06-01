@@ -18,6 +18,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+
 public class ConverterFragment extends Fragment {
 
     private final Calculator calculator = new Calculator();
@@ -40,6 +44,8 @@ public class ConverterFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+
+        MobileAds.initialize(getActivity().getApplicationContext(), getString(R.string.app_id));
     }
 
 
@@ -50,6 +56,10 @@ public class ConverterFragment extends Fragment {
 
         String error = getResources().getString(R.string.toast_data);
         toast_data = makeToast(error, Toast.LENGTH_SHORT);
+
+//        AdView mAdView = (AdView) view.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().build();
+//        mAdView.loadAd(adRequest);
 
 
         decEditText = (EditText) view.findViewById(R.id.dec_value);
@@ -71,7 +81,6 @@ public class ConverterFragment extends Fragment {
 
                 }
             }
-
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {}
@@ -363,7 +372,6 @@ public class ConverterFragment extends Fragment {
 
         switch (radix) {
 
-
             case 10: {
                 for (int i = 0; i < value.length(); i++) {
 
@@ -401,10 +409,8 @@ public class ConverterFragment extends Fragment {
             default: {
             }
         }
-
         return sb.reverse().toString();
     }
-
 
     private String addZero(String value) {
 
