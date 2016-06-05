@@ -57,9 +57,9 @@ public class ConverterFragment extends Fragment {
         String error = getResources().getString(R.string.toast_data);
         toast_data = makeToast(error, Toast.LENGTH_SHORT);
 
-//        AdView mAdView = (AdView) view.findViewById(R.id.adView);
-//        AdRequest adRequest = new AdRequest.Builder().build();
-//        mAdView.loadAd(adRequest);
+        AdView mAdView = (AdView) view.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
 
         decEditText = (EditText) view.findViewById(R.id.dec_value);
