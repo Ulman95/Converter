@@ -83,7 +83,8 @@ public class ConverterFragment extends Fragment {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -143,7 +144,8 @@ public class ConverterFragment extends Fragment {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -421,7 +423,6 @@ public class ConverterFragment extends Fragment {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < digits; i++) {
             sb.append("0");
-
         }
 
         return sb.append(value).toString();
