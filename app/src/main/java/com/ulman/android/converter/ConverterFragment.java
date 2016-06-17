@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -29,7 +31,7 @@ public class ConverterFragment extends Fragment {
     private boolean binFlag;
     private boolean octFlag;
     private boolean hexFlag;
-    private boolean space;
+    private boolean space = true;
     private Button clearAllButton;
     private EditText decEditText;
     private EditText binEditText;
@@ -67,6 +69,28 @@ public class ConverterFragment extends Fragment {
         octEditText = (EditText) view.findViewById(R.id.oct_value);
         hexEditText = (EditText) view.findViewById(R.id.hex_value);
         clearAllButton = (Button) view.findViewById(R.id.clear_all_button);
+
+//        int decMaxLength = 10;
+//        int binMaxLength = 31 + digits;
+//        int octMaxLength = 11;
+//        int hexMaxLength = 8;
+//
+//
+//        if (space) {
+//
+//            decMaxLength += 3;
+//            binMaxLength += 7;
+//            octMaxLength += 5;
+//            hexMaxLength += 3;
+//
+//        }
+//
+//
+//        decEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(decMaxLength)});
+//        binEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(binMaxLength)});
+//        octEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(octMaxLength)});
+//        hexEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(hexMaxLength)});
+
 
         decEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -349,7 +373,7 @@ public class ConverterFragment extends Fragment {
         super.onResume();
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        space = preferences.getBoolean(getString(R.string.spaces_key), false);
+        space = preferences.getBoolean(getString(R.string.spaces_key), true);
 
         try {
             digits = Integer.parseInt(preferences.getString(getString(R.string.digits_key), "0"));

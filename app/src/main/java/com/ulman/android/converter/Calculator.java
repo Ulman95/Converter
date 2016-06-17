@@ -1,5 +1,11 @@
 package com.ulman.android.converter;
 
+
+/**
+ * @author Vyacheslav Rodionov
+ * @version 1.0
+ * */
+
 public class Calculator {
 
     public String decimalToBinary(String value) throws NumberFormatException {
@@ -41,7 +47,6 @@ public class Calculator {
         return answer.substring(answer.length() - absAnswer.length());
     }
 
-
     public String binaryToDecimal(String value) throws NumberFormatException {
 
         if (value.isEmpty()) {
@@ -67,7 +72,6 @@ public class Calculator {
         return Integer.toHexString(Integer.parseInt(value, 2));
     }
 
-
     public String OctalToDecimal(String value) throws NumberFormatException {
 
         if (value.isEmpty()) {
@@ -89,7 +93,6 @@ public class Calculator {
         }
         return String.valueOf(Integer.toHexString(Integer.parseInt(value, 8)));
     }
-
 
     public String HexadecimalToDecimal(String value) throws NumberFormatException {
 
@@ -114,8 +117,5 @@ public class Calculator {
         }
         return String.valueOf(Integer.toOctalString(Integer.parseInt(value, 16)));
     }
-
-
-
 
 }
