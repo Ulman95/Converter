@@ -16,7 +16,7 @@
     <string name="write_a_letter_to_the_developer_title">Message to the developer</string>
 
     <string name="version_key" translatable="false">versionKEY</string>
-    <string name="version_summary" translatable="false">1.0.1</string>
+    <string name="version_summary" translatable="false">1.0.2</string>
     <string name="version_title">Version</string>
 
     <string name="spaces_key" translatable="false">spacesKEY</string>
