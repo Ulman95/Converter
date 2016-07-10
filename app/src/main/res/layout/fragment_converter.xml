@@ -1,113 +1,86 @@
-<GridLayout
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:columnCount="2"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:orientation="vertical"
+    android:padding="16dp">
 
 
-    <TextView
-        android:id="@+id/dec_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="0"
-        android:text="@string/dec"/>
-
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/dec_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="0"
+        style="@style/InputFieldTheme"
         android:digits="0123456789-"
+        android:hint="@string/dec"
         android:inputType="phone"
-        />
 
-    <TextView
-        android:id="@+id/bin_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="1"
-        android:text="@string/bin"/>
+        app:met_baseColor="@android:color/black"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_primaryColor="@color/colorAccent"
+        app:met_textColorHint="@android:color/transparent"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/bin_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="1"
+        style="@style/InputFieldTheme"
         android:digits="01"
+        android:hint="@string/bin"
         android:inputType="phone"
-        />
 
-    <TextView
-        android:id="@+id/oct_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="2"
-        android:text="@string/oct"/>
+        app:met_baseColor="@android:color/black"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_primaryColor="@color/colorAccent"
+        app:met_textColorHint="@android:color/transparent"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/oct_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="2"
+        style="@style/InputFieldTheme"
         android:digits="01234567-"
+        android:hint="@string/oct"
         android:inputType="phone"
-        />
 
-    <TextView
-        android:id="@+id/hex_system"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_row="3"
-        android:text="@string/hex"/>
+        app:met_baseColor="@android:color/black"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_primaryColor="@color/colorAccent"
+        app:met_textColorHint="@android:color/transparent"/>
 
-    <EditText
+    <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/hex_value"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_column="1"
-        android:layout_row="3"
-        android:digits="0123456789ABCDEFabcdef-"/>
-
-    <com.google.android.gms.ads.AdView
-        android:id="@+id/adView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:layout_gravity="center_horizontal"
-        android:layout_row="4"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/converter_banner">
-    </com.google.android.gms.ads.AdView>
+        style="@style/InputFieldTheme"
+        android:digits="0123456789ABCDEFabcdef-"
+        android:hint="@string/hex"
+        android:inputType="textVisiblePassword"
+        app:met_baseColor="@android:color/black"
+        app:met_floatingLabel="highlight"
+        app:met_floatingLabelAlwaysShown="true"
+        app:met_primaryColor="@color/colorAccent"
+        app:met_textColorHint="@android:color/transparent"/>
 
 
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_row="5"
-        android:layout_column="0"
-        android:layout_columnSpan="2"
-        android:orientation="vertical">
-
-    <Button
-        android:id="@+id/clear_all_button"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/clear"/>
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/clear_all_button"
+            style="@style/ButtonTheme"
+            android:layout_weight="1"
+            android:text="@string/clear"
+            />
+
+        <Button
+            android:id="@+id/settings_button"
+            style="@style/ButtonTheme"
+            android:layout_weight="1"
+            android:text="@string/action_settings"
+            />
+
 
     </LinearLayout>
 
-</GridLayout>
+</LinearLayout>

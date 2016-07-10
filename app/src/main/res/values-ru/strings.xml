@@ -26,6 +26,7 @@
     <string name="send">Отправить</string>
     <string name="message">Сообщение</string>
     <string name="choose_an_email_client">Выберете почтовый клиент</string>
+    <string name="no_email_client">Почтовый клиент не установлен</string>
 
 
 </resources>

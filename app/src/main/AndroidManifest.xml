@@ -6,10 +6,9 @@
 
 
     <uses-sdk
-        android:minSdkVersion="16"
-        android:targetSdkVersion="23" />
+        android:minSdkVersion="10"
+        android:targetSdkVersion="24" />
 
-    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -30,15 +29,10 @@
 
        <activity
             android:name=".SettingsActivity"
-            android:parentActivityName=".ConverterActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity
-            android:name=".MailForDeveloperActivity"
-            android:parentActivityName=".SettingsActivity"
-            android:screenOrientation="portrait">
-        </activity>
+
 
     </application>
 

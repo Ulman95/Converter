@@ -2,6 +2,7 @@ package com.ulman.android.converter;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
@@ -10,20 +11,14 @@ import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
-
-public class ConverterFragment extends Fragment {
+public class ConverterFragment extends Fragment implements View.OnClickListener {
 
     private final Calculator calculator = new Calculator();
     private boolean decFlag;
@@ -32,10 +27,12 @@ public class ConverterFragment extends Fragment {
     private boolean hexFlag;
     private boolean space = true;
     private Button clearAllButton;
+    private Button settingsButton;
     private EditText decEditText;
     private EditText binEditText;
     private EditText octEditText;
     private EditText hexEditText;
+
     private Toast toast_data;
     private Toast toast_editTextPreference;
     private int digits;
@@ -46,7 +43,7 @@ public class ConverterFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
 
-        MobileAds.initialize(getActivity().getApplicationContext(), getString(R.string.app_id));
+
     }
 
 
@@ -58,18 +55,24 @@ public class ConverterFragment extends Fragment {
         String error = getResources().getString(R.string.toast_data);
         toast_data = makeToast(error, Toast.LENGTH_SHORT);
 
-        AdView mAdView = (AdView) view.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        mAdView.loadAd(adRequest);
-
 
         decEditText = (EditText) view.findViewById(R.id.dec_value);
         binEditText = (EditText) view.findViewById(R.id.bin_value);
         octEditText = (EditText) view.findViewById(R.id.oct_value);
         hexEditText = (EditText) view.findViewById(R.id.hex_value);
+
+
         clearAllButton = (Button) view.findViewById(R.id.clear_all_button);
+        settingsButton = (Button) view.findViewById(R.id.settings_button);
 
 
+        decEditText.setTypeface(Typeface.SANS_SERIF);
+        binEditText.setTypeface(Typeface.SANS_SERIF);
+        octEditText.setTypeface(Typeface.SANS_SERIF);
+        hexEditText.setTypeface(Typeface.SANS_SERIF);
+
+        clearAllButton.setTypeface(Typeface.SANS_SERIF);
+        settingsButton.setTypeface(Typeface.SANS_SERIF);
 
 
         decEditText.addTextChangedListener(new TextWatcher() {
@@ -311,41 +314,12 @@ public class ConverterFragment extends Fragment {
                 }
             }
         });
-        clearAllButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                decEditText.setText("");
-                binEditText.setText("");
-                octEditText.setText("");
-                hexEditText.setText("");
-            }
-        });
+
+        clearAllButton.setOnClickListener(this);
+        settingsButton.setOnClickListener(this);
 
         return view;
 
-    }
-
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_settings, menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId()) {
-
-            case R.id.settings: {
-
-                Intent intent = new Intent(getActivity(), SettingsActivity.class);
-                startActivity(intent);
-
-                return true;
-            }
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -381,10 +355,10 @@ public class ConverterFragment extends Fragment {
         }
 
 
-        decEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(decMaxLength)});
-        binEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(binMaxLength)});
-        octEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(octMaxLength)});
-        hexEditText.setFilters(new InputFilter[] {new InputFilter.LengthFilter(hexMaxLength)});
+        decEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(decMaxLength)});
+        binEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(binMaxLength)});
+        octEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(octMaxLength)});
+        hexEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(hexMaxLength)});
 
     }
 
@@ -453,6 +427,13 @@ public class ConverterFragment extends Fragment {
 
     }
 
+    private void clearAllFields() {
+        decEditText.setText("");
+        binEditText.setText("");
+        octEditText.setText("");
+        hexEditText.setText("");
+    }
+
     private Toast makeToast(String error, int duration) {
 
         Toast toast = Toast.makeText(getActivity(), error, duration);
@@ -464,6 +445,27 @@ public class ConverterFragment extends Fragment {
     private void errorOccurred(Toast toast) {
 
         toast.show();
+    }
+
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+
+
+            case R.id.settings_button:
+
+                Intent intent = new Intent(getActivity(), SettingsActivity.class);
+                startActivity(intent);
+                break;
+
+            case R.id.clear_all_button:
+
+                clearAllFields();
+                break;
+
+
+        }
     }
 
 
