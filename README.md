@@ -3,14 +3,14 @@
   
 
    
-Decimal to Binary or to Octal or to Hexdicimal
+Decimal to Binary or to Octal or to Hexadecimal
 
 
 
 # How to install
 
 
-0. You need version 4.1 (Jelly Bean)
+0. You need version 2.3.3 (Gingerbread)
 1. Download app to your device https://play.google.com/store/apps/details?id=com.ulman.android.converter
 
 
