@@ -11,8 +11,7 @@ import android.widget.Toast;
 public class SettingsActivity extends PreferenceActivity {
 
     private final String WriteALetterToTheDeveloperKEY = "WriteALetterToTheDeveloperKEY";
-    private final String digitsKey = "digitsKEY";
-    private Preference editText;
+
     private Preference button;
 
     @Override
@@ -51,32 +50,7 @@ public class SettingsActivity extends PreferenceActivity {
             }
         });
 
-
-        editText = findPreference(digitsKey);
-        editText.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-
-                editText.setSummary(((String) newValue));
-                try {
-                    Integer.parseInt((String) newValue);
-                } catch (NumberFormatException e) {
-
-                    Toast.makeText(SettingsActivity.this,
-                            getString(R.string.toast_editText_preference),Toast.LENGTH_SHORT).show();
-
-                }
-                return true;
-            }
-
-        });
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        editText.setSummary(PreferenceManager.getDefaultSharedPreferences(this).getString(digitsKey,"0"));
-
-    }
 
 }

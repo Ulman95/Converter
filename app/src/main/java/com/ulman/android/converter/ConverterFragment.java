@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -33,9 +32,7 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
     private EditText octEditText;
     private EditText hexEditText;
 
-    private Toast toast_data;
-    private Toast toast_editTextPreference;
-    private int digits;
+
 
 
     @Override
@@ -52,8 +49,7 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
 
         View view = inflater.inflate(R.layout.fragment_converter, container, false);
 
-        String error = getResources().getString(R.string.toast_data);
-        toast_data = makeToast(error, Toast.LENGTH_SHORT);
+
 
 
         decEditText = (EditText) view.findViewById(R.id.dec_value);
@@ -110,11 +106,8 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                     try {
 
                         String decimalToBinary = calculator.decimalToBinary(value);
-                        decimalToBinary = addZero(decimalToBinary);
                         String decimalToOctal = calculator.decimalToOctal(value);
-                        //decimalToOctal = addZero(decimalToOctal);
                         String decimalToHexadecimal = calculator.decimalToHexadecimal(value);
-                        // decimalToHexadecimal = addZero(decimalToHexadecimal);
 
                         if (space) {
 
@@ -129,10 +122,11 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                             hexEditText.setText(decimalToHexadecimal);
                         }
 
+                        decEditText.setError("");
+
 
                     } catch (NumberFormatException e) {
-                        errorOccurred(toast_data);
-                        e.printStackTrace();
+                        decEditText.setError(getString(R.string.error_input_data_message));
                     }
                 }
             }
@@ -167,11 +161,8 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
 
                     try {
                         String binaryToDecimal = calculator.binaryToDecimal(value);
-                        //binaryToDecimal = addZero(binaryToDecimal);
                         String binaryToOctal = calculator.binaryToOctal(value);
-                        // binaryToOctal = addZero(binaryToOctal);
                         String binaryToHexadecimal = calculator.binaryToHexadecimal(value);
-                        // binaryToHexadecimal = addZero(binaryToHexadecimal);
 
                         if (space) {
 
@@ -185,10 +176,10 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                             octEditText.setText(binaryToOctal);
                             hexEditText.setText(binaryToHexadecimal);
                         }
+                        binEditText.setError("");
 
                     } catch (NumberFormatException e) {
-                        errorOccurred(toast_data);
-                        e.printStackTrace();
+                        binEditText.setError(getString(R.string.error_input_data_message));
                     }
                 }
 
@@ -218,7 +209,6 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                 if (octFlag) {
 
                     String value = octEditText.getText().toString().replace(" ", "");
-                    value = addZero(value);
 
                     if (value.equals("-")) {
                         return;
@@ -227,11 +217,8 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                     try {
 
                         String octalToBinary = calculator.OctalToBinary(value);
-                        octalToBinary = addZero(octalToBinary);
                         String octalToDecimal = calculator.OctalToDecimal(value);
-                        //octalToDecimal = addZero(octalToDecimal);
                         String octalToHexadecimal = calculator.OctalToHexadecimal(value);
-                        //octalToHexadecimal = addZero(octalToHexadecimal);
 
                         if (space) {
 
@@ -246,10 +233,11 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                             hexEditText.setText(octalToHexadecimal);
                         }
 
+                        octEditText.setError("");
+
 
                     } catch (NumberFormatException e) {
-                        errorOccurred(toast_data);
-                        e.printStackTrace();
+                        octEditText.setError(getString(R.string.error_input_data_message));
                     }
                 }
             }
@@ -287,11 +275,8 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                     try {
 
                         String hexadecimalToBinary = calculator.HexadecimalToBinary(value);
-                        hexadecimalToBinary = addZero(hexadecimalToBinary);
                         String hexadecimalToDecimal = calculator.HexadecimalToDecimal(value);
-                        //hexadecimalToDecimal = addZero(hexadecimalToDecimal);
                         String hexadecimalToOctal = calculator.HexadecimalToOctal(value);
-                        //hexadecimalToOctal = addZero(hexadecimalToOctal);
 
                         if (space) {
 
@@ -306,10 +291,11 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
                             octEditText.setText(hexadecimalToOctal);
                         }
 
+                        hexEditText.setError("");
+
 
                     } catch (NumberFormatException e) {
-                        errorOccurred(toast_data);
-                        e.printStackTrace();
+                        hexEditText.setError(getString(R.string.error_input_data_message));
                     }
                 }
             }
@@ -329,38 +315,8 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
         space = preferences.getBoolean(getString(R.string.spaces_key), true);
 
-        try {
-            digits = Integer.parseInt(preferences.getString(getString(R.string.digits_key), "0"));
-        } catch (ClassCastException | NumberFormatException e) {
-
-            toast_editTextPreference = makeToast(getString(R.string.toast_editText_preference), Toast.LENGTH_LONG);
-            errorOccurred(toast_editTextPreference);
-
-        }
-
-
-        int decMaxLength = 10;
-        int binMaxLength = 31 + digits;
-        int octMaxLength = 11;
-        int hexMaxLength = 8;
-
-
-        if (space) {
-
-            decMaxLength += 3;
-            binMaxLength += 7;
-            octMaxLength += 5;
-            hexMaxLength += 3;
-
-        }
-
-
-        decEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(decMaxLength)});
-        binEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(binMaxLength)});
-        octEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(octMaxLength)});
-        hexEditText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(hexMaxLength)});
-
     }
+
 
 
     private String makeSpaces(String value, int radix) {
@@ -412,21 +368,6 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
         return sb.reverse().toString();
     }
 
-    private String addZero(String value) {
-
-        if (value.isEmpty()) {
-            return "";
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < digits; i++) {
-            sb.append("0");
-        }
-
-        return sb.append(value).toString();
-
-    }
-
     private void clearAllFields() {
         decEditText.setText("");
         binEditText.setText("");
@@ -434,18 +375,6 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
         hexEditText.setText("");
     }
 
-    private Toast makeToast(String error, int duration) {
-
-        Toast toast = Toast.makeText(getActivity(), error, duration);
-        toast.setGravity(Gravity.CENTER, 0, 0);
-        return toast;
-
-    }
-
-    private void errorOccurred(Toast toast) {
-
-        toast.show();
-    }
 
 
     @Override

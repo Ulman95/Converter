@@ -17,11 +17,8 @@
 
     <!-- Toast -->
 
-    <string name="toast_data">Некорректный ввод данных</string>
-    <string name="digits_dialogTitle">Дополнительные знаки (только для BIN)</string>
-    <string name="digits_title">Число дополнительных знаков</string>
+    <string name="error_input_data_message">Некорректный ввод данных</string>
     <string name="spaces_title">Добавить отступы</string>
-    <string name="toast_editText_preference">Некорректное значение\nдополнительных цифр</string>
     <string name="spaces_summary">Добавляет отступы между разрядами</string>
     <string name="send">Отправить</string>
     <string name="message">Сообщение</string>
