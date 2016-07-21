@@ -16,8 +16,9 @@
         android:inputType="phone"
 
         app:met_baseColor="@android:color/black"
-        app:met_floatingLabel="highlight"
+        app:met_floatingLabel="normal"
         app:met_floatingLabelAlwaysShown="true"
+        app:met_helperText=""
         app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@android:color/transparent"/>
 
@@ -27,10 +28,11 @@
         android:digits="01"
         android:hint="@string/bin"
         android:inputType="phone"
-
         app:met_baseColor="@android:color/black"
-        app:met_floatingLabel="highlight"
+
+        app:met_floatingLabel="normal"
         app:met_floatingLabelAlwaysShown="true"
+        app:met_helperText=""
         app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@android:color/transparent"/>
 
@@ -42,8 +44,9 @@
         android:inputType="phone"
 
         app:met_baseColor="@android:color/black"
-        app:met_floatingLabel="highlight"
+        app:met_floatingLabel="normal"
         app:met_floatingLabelAlwaysShown="true"
+        app:met_helperText=""
         app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@android:color/transparent"/>
 
@@ -54,8 +57,9 @@
         android:hint="@string/hex"
         android:inputType="textVisiblePassword"
         app:met_baseColor="@android:color/black"
-        app:met_floatingLabel="highlight"
+        app:met_floatingLabel="normal"
         app:met_floatingLabelAlwaysShown="true"
+        app:met_helperText=""
         app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@android:color/transparent"/>
 

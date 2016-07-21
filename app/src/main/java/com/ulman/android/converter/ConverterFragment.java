@@ -17,6 +17,8 @@ import android.widget.EditText;
 
 import android.widget.Toast;
 
+import com.rengwuxian.materialedittext.MaterialEditText;
+
 public class ConverterFragment extends Fragment implements View.OnClickListener {
 
     private final Calculator calculator = new Calculator();
@@ -27,10 +29,10 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
     private boolean space = true;
     private Button clearAllButton;
     private Button settingsButton;
-    private EditText decEditText;
-    private EditText binEditText;
-    private EditText octEditText;
-    private EditText hexEditText;
+    private MaterialEditText decEditText;
+    private MaterialEditText binEditText;
+    private MaterialEditText octEditText;
+    private MaterialEditText hexEditText;
 
 
 
@@ -52,10 +54,10 @@ public class ConverterFragment extends Fragment implements View.OnClickListener 
 
 
 
-        decEditText = (EditText) view.findViewById(R.id.dec_value);
-        binEditText = (EditText) view.findViewById(R.id.bin_value);
-        octEditText = (EditText) view.findViewById(R.id.oct_value);
-        hexEditText = (EditText) view.findViewById(R.id.hex_value);
+        decEditText = (MaterialEditText) view.findViewById(R.id.dec_value);
+        binEditText = (MaterialEditText) view.findViewById(R.id.bin_value);
+        octEditText = (MaterialEditText) view.findViewById(R.id.oct_value);
+        hexEditText = (MaterialEditText) view.findViewById(R.id.hex_value);
 
 
         clearAllButton = (Button) view.findViewById(R.id.clear_all_button);
