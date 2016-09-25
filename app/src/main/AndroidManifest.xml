@@ -4,11 +4,9 @@
           android:versionCode="6"
           android:versionName="@string/version_summary">
 
-
     <uses-sdk
         android:minSdkVersion="10"
         android:targetSdkVersion="24" />
-
 
     <application
         android:allowBackup="true"
@@ -32,8 +30,5 @@
             android:screenOrientation="portrait">
         </activity>
 
-
-
     </application>
-
 </manifest>
