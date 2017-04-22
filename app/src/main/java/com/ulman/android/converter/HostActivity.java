@@ -1,10 +1,14 @@
 package com.ulman.android.converter;
 
+import android.content.Context;
 import android.os.Bundle;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.ulman.android.converter.mvp.view.base.BaseFragment;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class HostActivity extends AppCompatActivity
 {
@@ -26,5 +30,10 @@ public abstract class HostActivity extends AppCompatActivity
         }
     }
 
-    protected abstract Fragment createFragment();
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
+    }
+
+    protected abstract BaseFragment createFragment();
 }

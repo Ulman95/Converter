@@ -9,10 +9,9 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/dec_value"
-        style="@style/InputFieldTheme"
+        style="@style/AppText.InputFieldTheme"
         android:digits="0123456789-"
         android:hint="@string/dec"
         android:inputType="numberDecimal"
@@ -26,7 +25,7 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/bin_value"
-        style="@style/InputFieldTheme"
+        style="@style/AppText.InputFieldTheme"
         android:digits="01"
         android:hint="@string/bin"
         android:inputType="numberDecimal"
@@ -40,7 +39,7 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/oct_value"
-        style="@style/InputFieldTheme"
+        style="@style/AppText.InputFieldTheme"
         android:digits="01234567-"
         android:hint="@string/oct"
         android:inputType="numberDecimal"
@@ -54,7 +53,7 @@
 
     <com.rengwuxian.materialedittext.MaterialEditText
         android:id="@+id/hex_value"
-        style="@style/InputFieldTheme"
+        style="@style/AppText.InputFieldTheme"
         android:digits="0123456789ABCDEFabcdef-"
         android:hint="@string/hex"
         android:inputType="textVisiblePassword"
@@ -66,28 +65,24 @@
         app:met_primaryColor="@color/colorAccent"
         app:met_textColorHint="@android:color/transparent"/>
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-
         <Button
             android:id="@+id/clear_all_button"
-            style="@style/ButtonTheme"
+            style="@style/AppText.ButtonTheme"
             android:layout_weight="1"
             android:text="@string/clear"
             />
 
         <Button
             android:id="@+id/settings_button"
-            style="@style/ButtonTheme"
+            style="@style/AppText.ButtonTheme"
             android:layout_weight="1"
             android:text="@string/action_settings"
             />
 
-
     </LinearLayout>
-
 </LinearLayout>
