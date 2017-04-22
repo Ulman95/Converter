@@ -6,6 +6,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class App extends Application {
 
+    private AppComponent component;
+
     @Override
     public void onCreate() {
 
@@ -17,5 +19,14 @@ public class App extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+
+        component = DaggerAppComponent.builder()
+                .appModule(new AppModule(this))
+                .build();
+    }
+
+    public AppComponent getComponent() {
+
+        return component;
     }
 }
