@@ -12,9 +12,9 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
 
-        int intAnswer = Integer.parseInt(value);
-        String answer = Integer.toBinaryString(intAnswer);
-        String absAnswer = Integer.toBinaryString(Math.abs(intAnswer));
+        long longAnswer = Long.parseLong(value);
+        String answer = Long.toBinaryString(longAnswer);
+        String absAnswer = Long.toBinaryString(Math.abs(longAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
     }
@@ -25,9 +25,9 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
 
-        int intAnswer = Integer.parseInt(value);
-        String answer = Integer.toOctalString(intAnswer);
-        String absAnswer = Integer.toOctalString(Math.abs(intAnswer));
+        long longAnswer = Long.parseLong(value);
+        String answer = Long.toOctalString(longAnswer);
+        String absAnswer = Long.toOctalString(Math.abs(longAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
     }
@@ -38,9 +38,9 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
 
-        int intAnswer = Integer.parseInt(value);
-        String answer = Integer.toHexString(intAnswer);
-        String absAnswer = Integer.toHexString(Math.abs(intAnswer));
+        long longAnswer = Long.parseLong(value);
+        String answer = Long.toHexString(longAnswer);
+        String absAnswer = Long.toHexString(Math.abs(longAnswer));
 
         return answer.substring(answer.length() - absAnswer.length());
     }
@@ -51,7 +51,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return Integer.toString(Integer.parseInt(value, RADIX_BINARY), RADIX_DECIMAL);
+            return Long.toString(Long.parseLong(value, RADIX_BINARY), RADIX_DECIMAL);
     }
 
     @Override
@@ -60,7 +60,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return Integer.toOctalString(Integer.parseInt(value, RADIX_BINARY));
+            return Long.toOctalString(Long.parseLong(value, RADIX_BINARY));
     }
 
     @Override
@@ -69,7 +69,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return Integer.toHexString(Integer.parseInt(value, RADIX_BINARY));
+            return Long.toHexString(Long.parseLong(value, RADIX_BINARY));
     }
 
     @Override
@@ -78,7 +78,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return String.valueOf(Integer.parseInt(value, RADIX_OCTAL));
+            return String.valueOf(Long.parseLong(value, RADIX_OCTAL));
     }
 
     @Override
@@ -87,7 +87,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return String.valueOf(Integer.toBinaryString(Integer.parseInt(value, RADIX_OCTAL)));
+            return String.valueOf(Long.toBinaryString(Long.parseLong(value, RADIX_OCTAL)));
     }
 
     @Override
@@ -96,7 +96,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return String.valueOf(Integer.toHexString(Integer.parseInt(value, RADIX_OCTAL)));
+            return String.valueOf(Long.toHexString(Long.parseLong(value, RADIX_OCTAL)));
     }
 
     @Override
@@ -105,7 +105,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return String.valueOf(Integer.parseInt(value, RADIX_HEXADECIMAL));
+            return String.valueOf(Long.parseLong(value, RADIX_HEXADECIMAL));
     }
 
     @Override
@@ -114,7 +114,7 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return EMPTY_TEXT;
         else
-            return String.valueOf(Integer.toBinaryString(Integer.parseInt(value, RADIX_HEXADECIMAL)));
+            return String.valueOf(Long.toBinaryString(Long.parseLong(value, RADIX_HEXADECIMAL)));
     }
 
     @Override
@@ -123,6 +123,6 @@ public class Converter implements ConverterModel {
         if (value.isEmpty())
             return Global.EMPTY_TEXT;
         else
-            return String.valueOf(Integer.toOctalString(Integer.parseInt(value, RADIX_HEXADECIMAL)));
+            return String.valueOf(Long.toOctalString(Long.parseLong(value, RADIX_HEXADECIMAL)));
     }
 }

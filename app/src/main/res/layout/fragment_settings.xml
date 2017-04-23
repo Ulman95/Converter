@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="1">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/settings_container_space"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/settings_name_space"
+                style="@style/AppText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/spaces_title"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/settings_summary_space"
+                style="@style/AppText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/settings_name_space"
+                android:text="@string/spaces_summary"
+                android:textSize="12sp"/>
+
+            <android.support.v7.widget.SwitchCompat
+                android:id="@+id/settings_switch_space"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/settings_version"
+        style="@style/AppText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom|center_horizontal"
+        android:padding="16dp"
+        android:text="@string/version_summary"/>
+
+</LinearLayout>

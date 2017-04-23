@@ -2,14 +2,14 @@ package com.ulman.android.converter.mvp.view.converter;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.rengwuxian.materialedittext.MaterialEditText;
-import com.ulman.android.converter.App;
+import com.ulman.android.converter.AppComponent;
 import com.ulman.android.converter.Global;
 import com.ulman.android.converter.R;
 import com.ulman.android.converter.SettingsActivity;
@@ -21,7 +21,6 @@ import com.ulman.android.converter.mvp.view.base.BaseFragment;
 import javax.inject.Inject;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 import static com.ulman.android.converter.R.id.settings_button;
@@ -37,22 +36,23 @@ public class ConverterFragment extends BaseFragment implements ConverterView {
     @Inject ConverterPresenter presenter;
 
     @Override
-    public void setComponent() {
+    protected void setComponent(AppComponent appComponent) {
 
-        ((App) getActivity().getApplication()).getComponent()
-                .getConverterComponent()
-                .injectsConverterFragment(this);
-
-        presenter.setView(this);
+        appComponent.getConverterComponent().injectsConverterFragment(this);
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    @LayoutRes
+    protected int getLayoutRes() {
 
-        View view = inflater.inflate(R.layout.fragment_converter, container, false);
-        ButterKnife.bind(this, view);
+        return R.layout.fragment_converter;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+
+        super.onViewCreated(view, savedInstanceState);
         registerTextWatchers();
-        return view;
     }
 
     @OnClick({R.id.clear_all_button, R.id.settings_button})

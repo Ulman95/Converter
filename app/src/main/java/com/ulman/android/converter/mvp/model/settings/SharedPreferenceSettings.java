@@ -6,7 +6,6 @@ import android.preference.PreferenceManager;
 
 public class SharedPreferenceSettings implements SettingsModel {
 
-    private static final String KEY_SPACE = "KEY_SPACE";
     private SharedPreferences sharedPreferences;
 
     public SharedPreferenceSettings(Context context) {
